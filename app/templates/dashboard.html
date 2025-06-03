@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Olá, {{ current_user.username }}!</h1>
+
+    <h2>Minhas Tarefas</h2>
+    <form method="POST" action="{{ url_for('user.dashboard') }}">
+        <input type="text" name="description" placeholder="Digite nova tarefa" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.description }}
+                <form method="POST" action="{{ url_for('user.delete_task', task_id=task.id) }}" style="display:inline;">
+                    <button type="submit">Remover</button>
+                </form>
+            </li>
+        {% else %}
+            <li>Nenhuma tarefa ainda.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{{ url_for('auth.logout') }}">Sair</a></p>
+</body>
+</html>

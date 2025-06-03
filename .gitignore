@@ -1,0 +1,22 @@
+# Ignorar o ambiente virtual
+.venv/
+venv/
+ENV/
+
+# Ignorar o banco SQLite
+*.db
+*.sqlite3
+
+# Cache e bytecode do Python
+__pycache__/
+*.py[cod]
+
+# Arquivos temporários
+*.log
+*.bak
+*.swp
+.DS_Store
+
+# Arquivos de IDEs
+.vscode/
+.idea/
